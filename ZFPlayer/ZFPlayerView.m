@@ -697,6 +697,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         if (currentOrientation == UIInterfaceOrientationPortrait) {
             [self removeFromSuperview];
             ZFBrightnessView *brightnessView = [ZFBrightnessView sharedBrightnessView];
+            [[UIApplication sharedApplication].keyWindow bringSubviewToFront:brightnessView];
             [[UIApplication sharedApplication].keyWindow insertSubview:self belowSubview:brightnessView];
             [self mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.width.equalTo(@(ScreenHeight));
